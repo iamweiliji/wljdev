@@ -1,0 +1,22 @@
+eureka:
+  ###客户端调用地址
+  client:
+    serviceUrl:
+      defaultZone: http://wlj:123456@127.0.0.1:8100/eureka
+    ###是否将自己注册到Eureka服务中
+    register-with-eureka: true
+    ###是否从Eureka中获取注册信息
+    fetch-registry: true
+    #eureka client间隔多久去拉取服务注册信息
+    registry-fetch-interval-seconds: 30
+  instance:
+      prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+      ip-address: 127.0.0.1
+      instance-id: ${spring.application.name}:${server.port} #指定实例id
+zuul:
+  #ignored-services: "*"
+  routes: #定义服务转发规则
+    item-service: #item-service这个名字是任意写的
+      path: /item/**
+      serviceid: app-provider
+      stripPrefix: false
