@@ -1,5 +1,5 @@
 datasource: 
   url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf-8
   userName: root
-  password: wlj_040102
+  password: wlj_0401
   driverClass: com.mysql.jdbc.Driver
